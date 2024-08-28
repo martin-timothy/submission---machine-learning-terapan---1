@@ -4,27 +4,22 @@
 
 Adapun topik dari proyek yang saya kerjakan mengenai Electric Power System (Sistem Tenaga Listrik). Sistem Transmisi merupakan proses penyaluran tenaga listrik dari tempat pembangkit tenaga listrik (Power Plant) hingga Saluran distribusi listrik (substation distribution) sehingga dapat disalurkan sampai pada konsumen pengguna listrik. (https://ejournal.unsrat.ac.id/index.php/elekdankom/article/download/23646/23298)  
 
-Salah satu gangguan yang sering terjadi adalah gangguan hubung singkat, baik gangguan hubung singkat antar fasa maupun gangguan hubung singkat fasa dengan tanah. Gangguan hubung singkat pada saluran transmisi apabila bersifat permanen pada umumnya dapat mengakibatkan kerusakan mekanis pada peralatan-peralatan listrik yang terhubung dengan sistem yang sedang mengalami gangguan hubung singkat tersebut. Agar tidak berpengaruh terhadap peralatan-peralatan lain, maka secepatnya gangguan hubung singkat ini perlu untuk dideteksi, diklasifikasikan dan ditentukan lokasinya dengan tepat dan jelas secepat mungkin. Dalam sistem daya yang modern, penentuan jenis gangguan hubung singkat yang terjadi dengan cepat tentu akan sangat membantu dalam penanganan gangguan. (https://journal.umg.ac.id/index.php/e-link/article/view/582) 
+Salah satu gangguan yang sering terjadi adalah gangguan hubung singkat, baik gangguan hubung singkat antar fasa maupun gangguan hubung singkat fasa dengan tanah. Gangguan hubung singkat pada saluran transmisi apabila bersifat permanen pada umumnya dapat mengakibatkan kerusakan mekanis pada peralatan-peralatan listrik yang terhubung dengan sistem yang sedang mengalami gangguan hubung singkat tersebut. Agar tidak berpengaruh terhadap peralatan-peralatan lain, maka secepatnya gangguan hubung singkat ini perlu untuk dideteksi, diklasifikasikan dan ditentukan lokasinya dengan tepat dan jelas secepat mungkin. Dalam sistem daya yang modern, penentuan jenis gangguan hubung singkat yang terjadi dengan cepat tentu akan sangat membantu dalam penanganan gangguan. [[1]](https://journal.umg.ac.id/index.php/e-link/article/view/582) 
 
-Gangguan hubung singkat dapat juga terjadi akibat adanya isolasi yang tembus atau rusak karena tidak tahan terhadap tegangan lebih, baik yang berasal dari dalam maupun yang berasal dari luar (akibat sambaran petir). Gangguan yang mengakibatkan hubung singkat dapat menimbulkan arus yang jauh lebih besar dari pada arus normal. Bila gangguan hubung singkat dibiarkan berlangsung dengan lama pada suatu sistem daya, banyak pengaruh-pengaruh yang tidak diinginkan yang dapat terjadi. (https://ojs.unimal.ac.id/energi-elektrik/article/download/2408/pdf_1).
+Gangguan hubung singkat dapat juga terjadi akibat adanya isolasi yang tembus atau rusak karena tidak tahan terhadap tegangan lebih, baik yang berasal dari dalam maupun yang berasal dari luar (akibat sambaran petir). Gangguan yang mengakibatkan hubung singkat dapat menimbulkan arus yang jauh lebih besar dari pada arus normal. Bila gangguan hubung singkat dibiarkan berlangsung dengan lama pada suatu sistem daya, banyak pengaruh-pengaruh yang tidak diinginkan yang dapat terjadi[[2]](https://ojs.unimal.ac.id/energi-elektrik/article/download/2408/pdf_1).
+
+untuk bisa menangani gangguan hubung singkat pada saluran transmisi tentu secepat mungkin dapat dideteksi. Oleh karena itu, perlu menggunakan model machine learning serta melatihnya untuk dapat mendeteksi dan memprediksi secara cepat gangguan dan jenis gangguan sehingga gangguan tersebut dapat ditangani dengan baik dan secepat mungkin.
 
 ## Business Understanding
 ### Problem statements
 Adapun permasalahan yang akan diselesaikan pada proyek ini yakni :
-1. Bagaimana cara mengklasifikasikan jenis gangguan hubung singkat pada saluran transmisi berdasarkan nilai arus dan tegangan pada setiap fase (A, B, C) menggunakan algoritma machine learning?
-2. Algoritma machine learning yang cocok untuk memprediksi jenis gangguan hubung singkat apa yang terjadi pada saluran transmisi? 
-3. Berdasarkan pernyataan nomor 2 sertakan alasan algoritma machine learning yang dpilih cocok untuk digunakan
+1. Algoritma machine learning yang cocok untuk memprediksi jenis gangguan hubung singkat apa yang terjadi pada saluran transmisi? 
+2. Berdasarkan pernyataan nomor 2 sertakan alasan algoritma machine learning yang dpilih cocok untuk digunakan
 
 ### Goals
 Untuk menyelesaikan problem statements yang telah dibuat, maka akan diselesaikan sebagai berikut
-1.  - Pengumpulan Data, Kumpulkan data nilai arus dan tegangan pada setiap fase (A, B, C) dari saluran transmisi yang ingin diprediksi jenis gangguannya.
-    - Preprocessing Data, Lakukan preprocessing data untuk memastikan bahwa data yang digunakan sudah dalam bentuk yang siap digunakan oleh algoritma machine learning. Contohnya, normalisasi data, penghapusan data yang tidak lengkap, dan lain-lain.
-    - Pemilihan Algoritma, Pilih algoritma machine learning yang sesuai untuk mengklasifikasikan jenis gangguan hubung singkat.
-    - Pelatihan Model, Pelatihan model machine learning menggunakan data yang telah dipreprocessing.
-    - Evaluasi Model, Evaluasi model machine learning menggunakan data pengujian.
-    - Implementasi Model, Implementasikan model machine learning yang telah dipelatihan dan dievaluasi untuk mengklasifikasikan jenis gangguan hubung singkat pada saluran transmisi berdasarkan nilai arus dan tegangan pada setiap fase (A, B, C).
-2. Dari sekian banyaknya algoritma machine learning yang dapat menyelesaikan masalah tersebut, Penulis dalam menyelesaikan proyek ini akan menggunakan machine learning KNN, RandomForest, dan DecisionTree.
-3. Melakukan Evaluasi Model dengan MSE (Mean Squarer Error)
+1. Dari sekian banyaknya algoritma machine learning yang dapat menyelesaikan masalah tersebut, Penulis dalam menyelesaikan proyek ini akan menggunakan machine learning KNN, RandomForest, dan DecisionTree.
+3. Melakukan Evaluasi Model dengan MSE (Mean Squared Error)
 
 ### Solution Statements
 Solusi yang dapat dilakukan untuk memenuhi goals proyek ini diantaranya adalah sebagai berikut :
