@@ -2,11 +2,11 @@
 
 ## Domain Proyek
 
-Adapun topik dari proyek yang saya kerjakan mengenai Electric Power System (Sistem Tenaga Listrik). Sistem Transmisi merupakan proses penyaluran tenaga listrik dari tempat pembangkit tenaga listrik (Power Plant) hingga Saluran distribusi listrik (substation distribution) sehingga dapat disalurkan sampai pada konsumen pengguna listrik [1](https://ejournal.unsrat.ac.id/index.php/elekdankom/article/download/23646/23298)  
+Adapun topik dari proyek yang saya kerjakan mengenai Electric Power System (Sistem Tenaga Listrik). Sistem Transmisi merupakan proses penyaluran tenaga listrik dari tempat pembangkit tenaga listrik (Power Plant) hingga Saluran distribusi listrik (substation distribution) sehingga dapat disalurkan sampai pada konsumen pengguna listrik. (https://ejournal.unsrat.ac.id/index.php/elekdankom/article/download/23646/23298)  
 
-Salah satu gangguan yang sering terjadi adalah gangguan hubung singkat, baik gangguan hubung singkat antar fasa maupun gangguan hubung singkat fasa dengan tanah. Gangguan hubung singkat pada saluran transmisi apabila bersifat permanen pada umumnya dapat mengakibatkan kerusakan mekanis pada peralatan-peralatan listrik yang terhubung dengan sistem yang sedang mengalami gangguan hubung singkat tersebut. Agar tidak berpengaruh terhadap peralatan-peralatan lain, maka secepatnya gangguan hubung singkat ini perlu untuk dideteksi, diklasifikasikan dan ditentukan lokasinya dengan tepat dan jelas secepat mungkin. Dalam sistem daya yang modern, penentuan jenis gangguan hubung singkat yang terjadi dengan cepat tentu akan sangat membantu dalam penanganan gangguan. [2](https://journal.umg.ac.id/index.php/e-link/article/view/582) 
+Salah satu gangguan yang sering terjadi adalah gangguan hubung singkat, baik gangguan hubung singkat antar fasa maupun gangguan hubung singkat fasa dengan tanah. Gangguan hubung singkat pada saluran transmisi apabila bersifat permanen pada umumnya dapat mengakibatkan kerusakan mekanis pada peralatan-peralatan listrik yang terhubung dengan sistem yang sedang mengalami gangguan hubung singkat tersebut. Agar tidak berpengaruh terhadap peralatan-peralatan lain, maka secepatnya gangguan hubung singkat ini perlu untuk dideteksi, diklasifikasikan dan ditentukan lokasinya dengan tepat dan jelas secepat mungkin. Dalam sistem daya yang modern, penentuan jenis gangguan hubung singkat yang terjadi dengan cepat tentu akan sangat membantu dalam penanganan gangguan. (https://journal.umg.ac.id/index.php/e-link/article/view/582) 
 
-Gangguan hubung singkat dapat juga terjadi akibat adanya isolasi yang tembus atau rusak karena tidak tahan terhadap tegangan lebih, baik yang berasal dari dalam maupun yang berasal dari luar (akibat sambaran petir). Gangguan yang mengakibatkan hubung singkat dapat menimbulkan arus yang jauh lebih besar dari pada arus normal. Bila gangguan hubung singkat dibiarkan berlangsung dengan lama pada suatu sistem daya, banyak pengaruh-pengaruh yang tidak diinginkan yang dapat terjadi. [3](https://ojs.unimal.ac.id/energi-elektrik/article/download/2408/pdf_1).
+Gangguan hubung singkat dapat juga terjadi akibat adanya isolasi yang tembus atau rusak karena tidak tahan terhadap tegangan lebih, baik yang berasal dari dalam maupun yang berasal dari luar (akibat sambaran petir). Gangguan yang mengakibatkan hubung singkat dapat menimbulkan arus yang jauh lebih besar dari pada arus normal. Bila gangguan hubung singkat dibiarkan berlangsung dengan lama pada suatu sistem daya, banyak pengaruh-pengaruh yang tidak diinginkan yang dapat terjadi. (https://ojs.unimal.ac.id/energi-elektrik/article/download/2408/pdf_1).
 
 ## Business Understanding
 ### Problem statements
@@ -154,7 +154,53 @@ Adapun Modelling yang digunakan
 
 Model Machine Learning yang telah dikemukakan diatas akan digunakan pada proyek ini
 
+```
+knn = KNeighborsRegressor(n_neighbors=10)
+knn.fit(X_train, y_train)
+models.loc['train_mse','knn'] = mean_squared_error(y_pred = knn.predict(X_train), y_true=y_train)
+```
+
+Dalam kasus ini, model dikonfigurasikan untuk mempertimbangkan 10 tetangga terdekat saat membuat prediksi. Ini berarti bahwa model akan melihat 10 titik data yang paling mirip dengan yang diprediksi dan menggunakan nilai-nilainya untuk membuat prediksi.
+
+```
+RF = RandomForestRegressor(n_estimators=50, max_depth=16, random_state=55, n_jobs=-1)
+RF.fit(X_train, y_train)
+models.loc['train_mse','RandomForest'] = mean_squared_error(y_pred=RF.predict(X_train), y_true=y_train)
+```
 
 
+Dalam kasus ini, Parameter n_estimators menentukan jumlah pohon (estimator) yang digunakan dalam model Random Forest, Parameter max_depth menentukan kedalaman maksimum pohon, parameter random_state menentukan seed untuk generator acak,Parameter n_jobs menentukan jumlah pekerjaan yang dapat dijalankan secara paralel, dengan nilai default 1, dan dalam kasus ini diatur ke -1, yang berarti menggunakan semua inti CPU yang tersedia.
 
+```
+DT = DecisionTreeRegressor(max_depth=16, random_state=55)
+DT.fit(X_train, y_train)
+models.loc['train_mse','DecisionTree'] = mean_squared_error(y_pred=DT.predict(X_train), y_true=y_train)
+```
+
+dimana  max_depth menentukan kedalaman maksimum pohon, dan  parameter random_state menentukan seed untuk generator acak
+
+## Evaluasi Model
+Adapun proyek menggunakan kasus regresi dan menggunakan evaluasi MSE (Mean Squared Error) 
+
+![image](https://arize.com/wp-content/uploads/2021/12/MSE.png)
+
+
+Di mana:
+
+y_true adalah nilai aktual
+y_pred adalah nilai prediksi
+n adalah jumlah sampel
+Σ adalah simbol untuk penjumlahan
+MSE menghitung rata-rata kuadrat perbedaan antara nilai prediksi dan nilai aktual.
    
+setelah dilakukan MSE pada ketiga model, maka berikut hasilnya
+
+
+![Screenshot 2024-08-28 165923](https://github.com/user-attachments/assets/f9bca5a3-09b7-43fe-ab3f-ca6273d24cad)
+
+
+![Screenshot 2024-08-28 170038](https://github.com/user-attachments/assets/4be252d4-de67-4ead-8c81-5df5c7c24b7d)
+
+berdasarkan hasil diatas maka didapatkan hasil model terbaik yang digunakan pada proyek ini
+RandomForest dengan Mean Squared Error lebih kecil dari kedua model machine learning 
+
